@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | Avikumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="stayle.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Navigation -->
+<nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold gradient-text heading-font flex items-center">
+                <span class="mr-2 text-3xl"><i class="bi bi-code-slash"></i></span>
+                AVI PRAJAPATI
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-primary-500 transition font-medium">Home</a>
+                <a href="#education" class="hover:text-primary-500 transition font-medium">Education</a>
+                <a href="#skills" class="hover:text-primary-500 transition font-medium">Skills</a>
+                <a href="#projects" class="hover:text-primary-500 transition font-medium">Projects</a>
+                <a href="#achievements" class="hover:text-primary-500 transition font-medium">Achievements</a>
+                <a href="#contact" class="hover:text-primary-500 transition font-medium">Contact</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed top-[60px] left-0 w-full bg-white shadow-lg hidden z-40 transition-all duration-300">
+    <div class="flex flex-col p-5 space-y-5">
+        <a href="#home" class="hover:text-primary-500 transition font-medium">Home</a>
+        <a href="#education" class="hover:text-primary-500 transition font-medium">Education</a>
+        <a href="#skills" class="hover:text-primary-500 transition font-medium">Skills</a>
+        <a href="#projects" class="hover:text-primary-500 transition font-medium">Projects</a>
+        <a href="#achievements" class="hover:text-primary-500 transition font-medium">Achievements</a>
+        <a href="#contact" class="hover:text-primary-500 transition font-medium">Contact</a>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="pt-32 pb-20 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="max-w-xl">
+                <h2 class="text-lg text-primary-500 font-medium mb-3">Hello, I am a</h2>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 heading-font leading-tight">
+                    Full Stack <span class="gradient-text">Developer</span>
+                </h1>
+                <p class="text-gray-600 text-lg mb-8">Passionate about creating scalable web applications and solving complex problems with innovative solutions. I specialize in building robust applications using modern technologies.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="gradient-bg text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl hover:opacity-90 transition">View Projects</a>
+                    <a href="#contact" class="border-2 border-primary-500 text-primary-500 px-8 py-3 rounded-full font-medium hover:bg-primary-50 transition">Contact Me</a>
+                </div>
+                <div class="mt-10 flex space-x-5">
+                    <a href="https://github.com/Avi1606" target="_blank" class="text-2xl text-gray-700 hover:text-primary-500 transition">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/aviiiprajapati" target="_blank" class="text-2xl text-gray-700 hover:text-primary-500 transition">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="mailto:example@email.com" class="text-2xl text-gray-700 hover:text-primary-500 transition">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="animate-float">
+                <div class="relative w-72 h-72 md:w-96 md:h-96 bg-primary-100 rounded-full flex items-center justify-center shadow-xl">
+                    <div class="absolute inset-4 bg-white rounded-full flex items-center justify-center">
+                            <span class="text-8xl gradient-text">
+                                <i class="bi bi-code-square"></i>
+                            </span>
+                    </div>
+                    <div class="absolute -top-4 -right-4 bg-primary-500 text-white p-4 rounded-full shadow-lg">
+                        <i class="bi bi-braces text-2xl"></i>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-primary-500 text-white p-4 rounded-full shadow-lg">
+                        <i class="bi bi-database-fill text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center heading-font">
+                <span class="gradient-text">Education</span> Journey
+            </h2>
+            <div class="space-y-8 relative before:absolute before:inset-0 before:h-full before:w-1 before:ml-[20px] before:bg-primary-100 before:rounded lg:ml-12">
+                <div class="reveal flex ml-3">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full gradient-bg flex items-center justify-center shadow-lg z-10">
+                        <i class="bi bi-mortarboard-fill text-white"></i>
+                    </div>
+                    <div class="ml-8 p-6 bg-white rounded-lg shadow-md custom-shadow card-hover">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold">Bennett University, Greater Noida</h3>
+                                <p class="text-gray-600">Bachelor of Technology in Computer Science and Engineering</p>
+                            </div>
+                            <span class="bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Present</span>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-primary-600 font-semibold">CGPA: 8.75/10.0</span>
+                            <div class="ml-4 flex-grow">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 87.5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal flex ml-3">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full gradient-bg flex items-center justify-center shadow-lg z-10">
+                        <i class="bi bi-book text-white"></i>
+                    </div>
+                    <div class="ml-8 p-6 bg-white rounded-lg shadow-md custom-shadow card-hover">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold">Shree Ram Vidyalaya</h3>
+                                <p class="text-gray-600">State Board of Secondary Education (PCM)</p>
+                            </div>
+                            <span class="bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Completed</span>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-primary-600 font-semibold">Percentage: 77.89%</span>
+                            <div class="ml-4 flex-grow">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal flex ml-3">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full gradient-bg flex items-center justify-center shadow-lg z-10">
+                        <i class="bi bi-book text-white"></i>
+                    </div>
+                    <div class="ml-8 p-6 bg-white rounded-lg shadow-md custom-shadow card-hover">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold">Shree Ram Vidyalaya</h3>
+                                <p class="text-gray-600">State Board of Education (X)</p>
+                            </div>
+                            <span class="bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Completed</span>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-primary-600 font-semibold">Percentage: 82.89%</span>
+                            <div class="ml-4 flex-grow">
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center heading-font">
+            Technical <span class="gradient-text">Skills</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div class="reveal bg-white p-6 rounded-xl shadow-md custom-shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <span class="text-2xl text-primary-500 mr-3"><i class="bi bi-code-slash"></i></span>
+                    <h3 class="text-xl font-semibold">Programming</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="skill-icon" alt="Java">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>Java</span>
+                                <span class="text-primary-500">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="skill-icon" alt="JavaScript">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript</span>
+                                <span class="text-primary-500">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-white p-6 rounded-xl shadow-md custom-shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <span class="text-2xl text-primary-500 mr-3"><i class="bi bi-globe"></i></span>
+                    <h3 class="text-xl font-semibold">Web Technologies</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="skill-icon" alt="HTML">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>HTML</span>
+                                <span class="text-primary-500">95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="skill-icon" alt="CSS">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>CSS</span>
+                                <span class="text-primary-500">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" alt="React">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>React.js</span>
+                                <span class="text-primary-500">95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" class="skill-icon" alt="Spring">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>Spring Boot</span>
+                                <span class="text-primary-500">95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="skill-icon" alt="Node.js">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>Node.js</span>
+                                <span class="text-primary-500">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-white p-6 rounded-xl shadow-md custom-shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <span class="text-2xl text-primary-500 mr-3"><i class="bi bi-database"></i></span>
+                    <h3 class="text-xl font-semibold">Database</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="skill-icon" alt="MongoDB">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>MongoDB</span>
+                                <span class="text-primary-500">97%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 97%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="skill-icon" alt="MySQL">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>MySQL</span>
+                                <span class="text-primary-500">98%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-white p-6 rounded-xl shadow-md custom-shadow card-hover">
+                <div class="flex items-center mb-4">
+                    <span class="text-2xl text-primary-500 mr-3"><i class="bi bi-tools"></i></span>
+                    <h3 class="text-xl font-semibold">Tools & Others</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="skill-icon" alt="GitHub">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>GitHub</span>
+                                <span class="text-primary-500">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="skill-icon" alt="VS Code">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>VS Code</span>
+                                <span class="text-primary-500">95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="skill-icon" alt="Docker">
+                        <div class="flex-grow">
+                            <div class="flex justify-between mb-1">
+                                <span>Docker</span>
+                                <span class="text-primary-500">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-value" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center heading-font">
+            Featured <span class="gradient-text">Projects</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            <div class="reveal bg-gray-50 rounded-xl overflow-hidden shadow-md custom-shadow card-hover">
+                <div class="h-56 bg-gradient-to-r from-primary-500 to-primary-700 p-6 flex items-end">
+                    <div class="bg-white/95 backdrop-blur-sm p-4 rounded-lg inline-block">
+                        <i class="bi bi-journal-text text-4xl text-primary-600"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3">Journal Application</h3>
+                    <p class="text-gray-600 mb-4">A scalable backend application using Java and Spring Boot, implementing secure user authentication and authorization with JWT. The application utilizes MongoDB Atlas for data storage and Redis for caching, integrating external APIs like weather updates.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Spring Boot</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Redis</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">JWT</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="https://github.com/Avi1606" class="text-primary-600 hover:text-primary-700 flex items-center">
+                            <i class="bi bi-github mr-2"></i> View Source
+                        </a>
+                        <a href="#" class="text-primary-600 hover:text-primary-700 flex items-center">
+                            <i class="bi bi-box-arrow-up-right mr-2"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-gray-50 rounded-xl overflow-hidden shadow-md custom-shadow card-hover">
+                <div class="h-56 bg-gradient-to-r from-primary-600 to-primary-800 p-6 flex items-end">
+                    <div class="bg-white/95 backdrop-blur-sm p-4 rounded-lg inline-block">
+                        <i class="bi bi-phone text-4xl text-primary-600"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3">Quick-News</h3>
+                    <p class="text-gray-600 mb-4">Cross-platform mobile application built with React Native featuring state management, navigation, API integration, and responsive UI components. Utilized Redux/Context API for efficient state management across the application.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">React Native</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Redux</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">API Integration</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Mobile UI</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="https://github.com/Avi1606" class="text-primary-600 hover:text-primary-700 flex items-center">
+                            <i class="bi bi-github mr-2"></i> View Source
+                        </a>
+                        <a href="#" class="text-primary-600 hover:text-primary-700 flex items-center">
+                            <i class="bi bi-play-circle mr-2"></i> Demo Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-gray-50 rounded-xl overflow-hidden shadow-md custom-shadow card-hover">
+                <div class="h-56 bg-gradient-to-r from-primary-700 to-primary-500 p-6 flex items-end">
+                    <div class="bg-white/95 backdrop-blur-sm p-4 rounded-lg inline-block">
+                        <i class="bi bi-bank text-4xl text-primary-600"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3">Banking Application</h3>
+                    <p class="text-gray-600 mb-4">Built a basic Banking website using Spring Boot and MySQL. Verified RESTful APIs using Postman for robust functionality. Currently enhancing security with modern authentication implementation.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Spring Boot</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">RESTful API</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Postman</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="https://github.com/Avi1606" class="text-primary-600 hover:text-primary-700 flex items-center">
+                            <i class="bi bi-github mr-2"></i> View Source
+                        </a>
+                        <span class="text-gray-500 flex items-center">
+                                <i class="bi bi-hourglass-split mr-2"></i> In Development
+                            </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal bg-gray-50 rounded-xl overflow-hidden shadow-md custom-shadow card-hover">
+                <div class="h-56 bg-gradient-to-r from-primary-800 to-primary-600 p-6 flex items-end">
+                    <div class="bg-white/95 backdrop-blur-sm p-4 rounded-lg inline-block">
+                        <i class="bi bi-check2-square text-4xl text-primary-600"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3">VoteLogic</h3>
+                    <p class="text-gray-600 mb-4">Developed VoteLogic, an interactive web platform enabling users to rate political leaders, report local issues, and access government schemes, fostering informed voting decisions.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">HTML/CSS</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">UI/UX</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="https://github.com/Avi1606" class="text-primary-600 hover:text-primary-700 flex items-center">
+                            <i class="bi bi-github mr-2"></i> View Source
+                        </a>
+                        <a href="#" class="text-primary-600 hover:text-primary-700 flex items-center">
+                            <i class="bi bi-box-arrow-up-right mr-2"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <h3 class="text-xl font-semibold mb-6">Other Projects</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+                <div class="reveal bg-white p-5 rounded-lg shadow-sm border border-gray-100 card-hover">
+                    <h4 class="font-medium flex items-center">
+                        <i class="bi bi-award text-primary-500 mr-2"></i>
+                        Student Style
+                    </h4>
+                    <p class="text-sm text-gray-600 mt-2">A dynamic Trend Recommendation Application integrating Sorting and Priority Queue algorithms.</p>
+                </div>
+
+                <div class="reveal bg-white p-5 rounded-lg shadow-sm border border-gray-100 card-hover">
+                    <h4 class="font-medium flex items-center">
+                        <i class="bi bi-house-door text-primary-500 mr-2"></i>
+                        Intra
+                    </h4>
+                    <p class="text-sm text-gray-600 mt-2">A front-end website for house interior design using HTML and CSS.</p>
+                </div>
+
+                <div class="reveal bg-white p-5 rounded-lg shadow-sm border border-gray-100 card-hover">
+                    <h4 class="font-medium flex items-center">
+                        <i class="bi bi-code-square text-primary-500 mr-2"></i>
+                        Spring Boot Basic
+                    </h4>
+                    <p class="text-sm text-gray-600 mt-2">A foundational Spring Boot project showcasing core framework capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Achievements Section -->
+<section id="achievements" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center heading-font">
+            <span class="gradient-text">Achievements</span> & Awards
+        </h2>
+        <div class="max-w-4xl mx-auto space-y-8">
+            <div class="reveal bg-white p-8 rounded-xl shadow-md custom-shadow card-hover relative">
+                <div class="absolute -top-4 -right-4 w-14 h-14 bg-primary-500 text-white rounded-full flex items-center justify-center">
+                    <i class="bi bi-trophy text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 pr-12">EY CAFTA Case Championship</h3>
+                <p class="text-gray-600 mb-4">Secured 2nd Rank in EY CAFTA Case Championship Mega Edition 2024 (Round 1) and 4th rank in Final Round.</p>
+                <div class="flex items-center">
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm flex items-center">
+                            <i class="bi bi-star-fill mr-1"></i> 2nd Place
+                        </span>
+                </div>
+            </div>
+
+            <div class="reveal bg-white p-8 rounded-xl shadow-md custom-shadow card-hover relative">
+                <div class="absolute -top-4 -right-4 w-14 h-14 bg-primary-500 text-white rounded-full flex items-center justify-center">
+                    <i class="bi bi-journal-richtext text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 pr-12">Conference Paper Acceptance</h3>
+                <p class="text-gray-600 mb-4">"Student Style" accepted at ICRAET-2024 on 06th Jun 2024 at Munnar, India.</p>
+                <div class="flex items-center">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm flex items-center">
+                            <i class="bi bi-check-circle-fill mr-1"></i> Published
+                        </span>
+                </div>
+            </div>
+
+            <div class="reveal bg-white p-8 rounded-xl shadow-md custom-shadow card-hover relative">
+                <div class="absolute -top-4 -right-4 w-14 h-14 bg-primary-500 text-white rounded-full flex items-center justify-center">
+                    <i class="bi bi-lightbulb text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 pr-12">Innovation Awards</h3>
+                <p class="text-gray-600 mb-4">• Recognized for innovation with two state-level and one national-level Science Exhibition awards held at
+                    IIT-DELHI, showcasing real-life problem-solving and technical expertise.</p>
+                <div class="flex items-center space-x-3">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm flex items-center">
+                            <i class="bi bi-award-fill mr-1"></i> National Award
+                        </span>
+                    <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm flex items-center">
+                            <i class="bi bi-award-fill mr-1"></i> State Awards (2)
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center heading-font">
+            Get In <span class="gradient-text">Touch</span>
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <div class="reveal">
+                <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                <p class="text-gray-600 mb-8">Feel free to reach out if you have any questions or if you'd like to collaborate on a project.</p>
+
+                <div class="space-y-6">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
+                            <i class="bi bi-envelope text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium">Email</h4>
+                            <a href="mailto:aviiiprajapti16@email.com" class="text-primary-600 hover:text-primary-700">aviiiprajapti16@email.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
+                            <i class="bi bi-geo-alt text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium">Location</h4>
+                            <p class="text-gray-600">Greater Noida, India</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
+                            <i class="bi bi-linkedin text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium">LinkedIn</h4>
+                            <a href="https://linkedin.com/in/aviiiprajapati" class="text-primary-600 hover:text-primary-700">linkedin.com/in/aviiiprajapati</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
+                            <i class="bi bi-github text-white text-xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium">GitHub</h4>
+                            <a href="https://github.com/Avi1606" class="text-primary-600 hover:text-primary-700">github.com/Avi1606</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <form class="bg-gray-50 p-8 rounded-xl shadow-md space-y-6">
+                    <div>
+                        <label for="name" class="block mb-2 font-medium">Name</label>
+                        <input type="text" id="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 font-medium">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 font-medium">Message</label>
+                        <textarea id="message" placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full gradient-bg text-white font-medium px-6 py-3 rounded-lg hover:opacity-90 transition flex items-center justify-center">
+                        <i class="bi bi-send mr-2"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-10">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold gradient-text mb-4">Avikumar</h3>
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/Avi1606" class="text-gray-300 hover:text-white transition">
+                    <i class="bi bi-github text-xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/aviiiprajapati" class="text-gray-300 hover:text-white transition">
+                    <i class="bi bi-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-white transition">
+                    <i class="bi bi-twitter text-xl"></i>
+                </a>
+                <a href="mailto:aviiiprajapati16@email.com" class="text-gray-300 hover:text-white transition">
+                    <i class="bi bi-envelope-fill text-xl"></i>
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2025 Avikumar. All rights reserved. Last updated: 2025-03-22</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#home" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="clicks.js"></script>
+</body>
+</html>

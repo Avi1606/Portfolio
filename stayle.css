@@ -60,7 +60,11 @@ body {
     transform: translateY(30px);
     transition: all 0.8s ease;
 }
-
+.btn-loading {
+    position: relative;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
 .reveal.active {
     opacity: 1;
     transform: translateY(0);

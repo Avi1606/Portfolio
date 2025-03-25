@@ -23,11 +23,71 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission
+// // Form submission
+// document.querySelector('form').addEventListener('submit', function(e) {
+//     e.preventDefault();
+//     alert('Thank you for your message! I will get back to you soon.');
+//     this.reset();
+// });
+
+// Form submission with Firebase
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-    this.reset();
+
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const timestamp = new Date();
+
+    // Form validation
+// Add this function before your form event listener
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+// Then in your form submission:
+    if (!name || !email || !message) {
+        alert('Please fill in all fields');
+        return;
+    }
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+
+    // Disable submit button and show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split mr-2"></i> Sending...';
+
+    // Add a new document to collection "contacts"
+    db.collection("contacts").add({
+        name: name,
+        email: email,
+        message: message,
+        timestamp: timestamp
+    })
+        .then(() => {
+            // Success
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        })
+        .catch((error) => {
+            // Error
+            console.error("Error adding document: ", error);
+            alert('Sorry, there was an error sending your message. Please try again later.');
+
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        });
 });
 
 // Scroll reveal animation

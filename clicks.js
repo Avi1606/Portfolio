@@ -114,10 +114,47 @@ function updateLastModified() {
     });
 }
 
+// Theme toggling functionality
+function setupThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    // Set dark theme as default regardless of previous settings
+    localStorage.setItem('theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
+    
+    // Make sure icon matches the dark theme
+    themeIcon.classList.remove('bi-sun-fill');
+    themeIcon.classList.add('bi-moon-fill');
+    
+    // Apply the initial styling to all elements that need it
+    document.body.style.backgroundColor = 'var(--bg-color)';
+    document.body.style.color = 'var(--text-color)';
+
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Update the icon
+        if (newTheme === 'dark') {
+            themeIcon.classList.remove('bi-sun-fill');
+            themeIcon.classList.add('bi-moon-fill');
+        } else {
+            themeIcon.classList.remove('bi-moon-fill');
+            themeIcon.classList.add('bi-sun-fill');
+        }
+    });
+}
+
 // Initialize all functionality
 function init() {
     revealElements();
     updateLastModified();
+    setupThemeToggle();
 }
 
 window.addEventListener('scroll', revealElements);

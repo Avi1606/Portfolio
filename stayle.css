@@ -298,3 +298,189 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
+/* Particles Animation */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    pointer-events: none;
+    background-color: var(--primary-color, #6366f1);
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+/* Enhanced animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.reveal-up.active {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.reveal-left.active {
+    animation: fadeInLeft 0.8s ease forwards;
+}
+
+.reveal-right.active {
+    animation: fadeInRight 0.8s ease forwards;
+}
+
+.reveal-delay-1 {
+    animation-delay: 0.2s;
+}
+
+.reveal-delay-2 {
+    animation-delay: 0.4s;
+}
+
+.reveal-delay-3 {
+    animation-delay: 0.6s;
+}
+
+.typing-container {
+    display: inline-block;
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--text-color);
+    animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+    animation-delay: 1s;
+    width: 0;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #818cf8);
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Enhanced hover effects */
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.btn-hover-effect:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-hover-effect:hover:before {
+    left: 100%;
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+}
+
+.rotate-icon {
+    transition: transform 0.5s ease;
+}
+
+.rotate-icon:hover {
+    transform: rotate(360deg);
+}
+
+.tilt-effect {
+    transition: transform 0.2s ease;
+}
+
+.tilt-effect:hover {
+    transform: perspective(1000px) rotateY(5deg) rotateX(2deg);
+}

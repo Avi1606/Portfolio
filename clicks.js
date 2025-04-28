@@ -150,11 +150,147 @@ function setupThemeToggle() {
     });
 }
 
+// Particles animation for hero section
+function setupParticles() {
+    const container = document.querySelector('.particles-container');
+    if (!container) return;
+
+    const particleCount = 30;
+    const colors = ['#6366f1', '#818cf8', '#4f46e5', '#c7d2fe'];
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position, size, and animation duration
+        const size = Math.random() * 15 + 5;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const animationDuration = Math.random() * 15 + 10;
+        const delay = Math.random() * 5;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${left}%`;
+        particle.style.top = `${top}%`;
+        particle.style.animationDuration = `${animationDuration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.backgroundColor = color;
+        
+        container.appendChild(particle);
+        
+        // Set animation
+        particle.style.animation = `float-particle ${animationDuration}s ease-in-out ${delay}s infinite`;
+    }
+}
+
+// Scroll progress indicator
+function setupScrollProgress() {
+    const scrollProgress = document.createElement('div');
+    scrollProgress.classList.add('scroll-progress');
+    document.body.appendChild(scrollProgress);
+    
+    window.addEventListener('scroll', () => {
+        const scrollPx = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollPercent = (scrollPx / (scrollHeight - clientHeight)) * 100;
+        
+        scrollProgress.style.width = scrollPercent + '%';
+    });
+}
+
+// Enhanced scroll reveal animation
+function revealElements() {
+    const reveals = document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right');
+
+    for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+        }
+    }
+}
+
+// Add tilt effect to cards
+function setupTiltEffect() {
+    const tiltElements = document.querySelectorAll('.tilt-effect');
+    
+    tiltElements.forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xPercent = (x / rect.width - 0.5) * 20;
+            const yPercent = (y / rect.height - 0.5) * 20;
+            
+            element.style.transform = `perspective(1000px) rotateY(${xPercent}deg) rotateX(${-yPercent}deg)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+        });
+    });
+}
+
+// Update last modified date and time
+function updateLastModified() {
+    const lastUpdated = "2025-03-22 14:24:04";
+    const lastUpdatedElements = document.querySelectorAll('.last-updated');
+    lastUpdatedElements.forEach(el => {
+        el.textContent = lastUpdated;
+    });
+}
+
+// Theme toggling functionality
+function setupThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    // Set dark theme as default regardless of previous settings
+    localStorage.setItem('theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
+    
+    // Make sure icon matches the dark theme
+    themeIcon.classList.remove('bi-sun-fill');
+    themeIcon.classList.add('bi-moon-fill');
+    
+    // Apply the initial styling to all elements that need it
+    document.body.style.backgroundColor = 'var(--bg-color)';
+    document.body.style.color = 'var(--text-color)';
+
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Update the icon
+        if (newTheme === 'dark') {
+            themeIcon.classList.remove('bi-sun-fill');
+            themeIcon.classList.add('bi-moon-fill');
+        } else {
+            themeIcon.classList.remove('bi-moon-fill');
+            themeIcon.classList.add('bi-sun-fill');
+        }
+    });
+}
+
 // Initialize all functionality
 function init() {
     revealElements();
     updateLastModified();
     setupThemeToggle();
+    setupParticles();
+    setupScrollProgress();
+    setupTiltEffect();
 }
 
 window.addEventListener('scroll', revealElements);

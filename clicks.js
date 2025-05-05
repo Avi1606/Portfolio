@@ -30,7 +30,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 //     this.reset();
 // });
 
-// Form submission with Firebase
+// Form submission with Firebase and custom popup
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -41,19 +41,17 @@ document.querySelector('form').addEventListener('submit', function(e) {
     const timestamp = new Date();
 
     // Form validation
-// Add this function before your form event listener
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
 
-// Then in your form submission:
     if (!name || !email || !message) {
-        alert('Please fill in all fields');
+        showErrorPopup('Please fill in all fields');
         return;
     }
     if (!isValidEmail(email)) {
-        alert('Please enter a valid email address');
+        showErrorPopup('Please enter a valid email address');
         return;
     }
 
@@ -62,6 +60,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="bi bi-hourglass-split mr-2"></i> Sending...';
+    submitBtn.classList.add('btn-loading');
 
     // Add a new document to collection "contacts"
     db.collection("contacts").add({
@@ -70,25 +69,74 @@ document.querySelector('form').addEventListener('submit', function(e) {
         message: message,
         timestamp: timestamp
     })
-        .then(() => {
-            // Success
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-        })
-        .catch((error) => {
-            // Error
-            console.error("Error adding document: ", error);
-            alert('Sorry, there was an error sending your message. Please try again later.');
-
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-        });
+    .then(() => {
+        // Success
+        this.reset();
+        
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.classList.remove('btn-loading');
+        
+        // Show success popup
+        showSuccessPopup();
+    })
+    .catch((error) => {
+        // Error
+        console.error("Error adding document: ", error);
+        
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.classList.remove('btn-loading');
+        
+        // Show error popup
+        showErrorPopup('Sorry, there was an error sending your message. Please try again later.');
+    });
 });
+
+// Function to show success popup
+function showSuccessPopup() {
+    const popup = document.getElementById('successPopup');
+    popup.classList.remove('hidden');
+    
+    // Add animation classes
+    const popupContent = popup.querySelector('div.bg-white');
+    popupContent.classList.add('animate-fadeInUp');
+    
+    // Setup close button
+    document.getElementById('closePopupBtn').addEventListener('click', () => {
+        popup.classList.add('hidden');
+    });
+    
+    // Close when clicking outside
+    popup.querySelector('.absolute').addEventListener('click', () => {
+        popup.classList.add('hidden');
+    });
+}
+
+// Function to show error popup
+function showErrorPopup(message) {
+    const popup = document.getElementById('errorPopup');
+    const messageElement = document.getElementById('errorMessage');
+    messageElement.textContent = message;
+    
+    popup.classList.remove('hidden');
+    
+    // Add animation classes
+    const popupContent = popup.querySelector('div.bg-white');
+    popupContent.classList.add('animate-fadeInUp');
+    
+    // Setup close button
+    document.getElementById('closeErrorBtn').addEventListener('click', () => {
+        popup.classList.add('hidden');
+    });
+    
+    // Close when clicking outside
+    popup.querySelector('.absolute').addEventListener('click', () => {
+        popup.classList.add('hidden');
+    });
+}
 
 // Scroll reveal animation
 function revealElements() {
